@@ -10,12 +10,12 @@ class KafkaConnector(StreamConnectorBase):
     kafka stream connector service
     """
 
-    def publish(self, data):
+    def publish(self, data, *args, **kwargs):
         producer = Producer({'bootstrap.servers': self.host})
         producer.poll(0)
         _data = json.dumps(data)
         producer.produce(
-            self.topic, _data.encode('utf-8'), callback=self.delivery_status)
+            self.topic, _data.encode('utf-8'), *args, **kwargs, callback=self.delivery_status)
         producer.flush()
 
     def consume(self):
