@@ -13,10 +13,10 @@ class StreamPublisher(object):
         self.topic = topic
         self.configurations = configurations
 
-    def publish(self, data):
+    def publish(self, data, *args, **kwargs):
         executable_service = ServiceMap.get_stream_service(
             self.service)(self.host, self.topic, configurations=self.configurations)
-        return executable_service.publish(data)
+        return executable_service.publish(data, *args, **kwargs)
 
 
 class StreamConsumer(object):
