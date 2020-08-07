@@ -11,7 +11,9 @@ class KafkaConnector(StreamConnectorBase):
     """
 
     def publish(self, data, *args, **kwargs):
-        producer = Producer({'bootstrap.servers': self.host})
+        config = self.configurations
+        config.update({'bootstrap.servers': self.host})
+        producer = Producer(producer = Producer(config))
         producer.poll(0)
         _data = json.dumps(data)
         producer.produce(
