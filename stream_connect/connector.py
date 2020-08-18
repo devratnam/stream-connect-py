@@ -7,7 +7,7 @@ class StreamPublisher(object):
     generic class to publish messages into stream service
     """
 
-    def __init__(self, service, host, topic, configurations={}):
+    def __init__(self, service, host, topic, configurations={}, *args, **kwargs):
         self.service = service
         self.host = host
         self.topic = topic
