@@ -3,7 +3,7 @@ import sys
 from os.path import join, dirname
 from setuptools import setup, find_packages
 
-VERSION = (1, 0, 8)
+VERSION = (2, 0, 0)
 __version__ = VERSION
 __versionstr__ = '.'.join(map(str, VERSION))
 
@@ -12,7 +12,7 @@ long_description = f.read().strip()
 f.close()
 
 install_requires = [
-    "confluent-kafka==0.11.6"
+    "confluent-kafka==1.8.2"
 ]
 
 
